@@ -1,0 +1,49 @@
+/* Componentes principais */
+
+/* Header */
+.site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); background: color-mix(in oklab, var(--bg), var(--glass) 60%); border-bottom: 1px solid var(--border); }
+.site-header .nav a { color: color-mix(in oklab, var(--fg), #000 10%); }
+.site-header .nav a.active { color: var(--fg); }
+
+/* Brand */
+.brand { display:flex; align-items:center; gap:.5rem; font-weight:700; letter-spacing:.02em; color: var(--brand); }
+.brand .mark { width: 24px; height: 24px; background: conic-gradient(from 180deg at 50% 50%, var(--brand), color-mix(in oklab, var(--brand), black 16%), var(--accent)); border-radius: 6px; box-shadow: inset 0 0 0 1px color-mix(in oklab, var(--brand), white 30%); }
+
+/* Hero */
+.hero { position:relative; overflow:hidden; background: var(--grad), radial-gradient(1200px 600px at 100% -40%, color-mix(in oklab, var(--brand), white 92%), transparent 70%); }
+.hero-inner { display:grid; gap: 2rem; align-items:center; padding-block: clamp(3rem, 6vw, 6rem); }
+.hero-title { font-family: var(--font-heading); font-weight: 700; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; color: var(--brand); }
+.hero-sub { color: color-mix(in oklab, var(--fg), #000 30%); font-size: 1.1rem; max-width: 60ch; }
+
+/* Search Card com glow cônico */
+.search-card { position: relative; border-radius: var(--radius-lg); background: var(--card); border: 1px solid var(--border); box-shadow: var(--shadow); padding: 1rem; }
+.search-card::before { content:""; position:absolute; inset:-1px; border-radius: inherit; padding:1px; background: conic-gradient(from 180deg at 50% 50%, color-mix(in oklab, var(--accent), white 25%), transparent, color-mix(in oklab, var(--brand), white 15%), transparent 60%); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+.search-grid { display:grid; gap:.5rem; }
+@media (min-width: 768px) { .search-grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+.search-field, .search-select { border:1px solid var(--border); border-radius: 10px; padding:.75rem 1rem; background: var(--card); color: var(--fg); }
+.search-checkbox { display:flex; align-items:center; gap:.5rem; border:1px solid var(--border); border-radius:10px; padding:.6rem .9rem; }
+
+/* Cards de imóvel */
+.imm-card { display:flex; flex-direction: column; border:1px solid var(--border); border-radius: var(--radius); background: var(--card); overflow:hidden; transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+.imm-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,0,0,.12); border-color: color-mix(in oklab, var(--border), var(--brand) 25%); }
+.imm-media { aspect-ratio: 16/10; object-fit: cover; width: 100%; }
+.imm-meta { display:flex; flex-wrap:wrap; gap:.5rem 1rem; color: color-mix(in oklab, var(--fg), #000 35%); font-size: .9rem; }
+.imm-price { position:absolute; top:.75rem; left:.75rem; background: color-mix(in oklab, var(--brand), white 20%); color: #fff; padding:.35rem .6rem; border-radius: 999px; font-weight:600; box-shadow: var(--shadow); }
+.imm-fav { position:absolute; top:.75rem; right:.75rem; border-radius: 999px; background: color-mix(in oklab, var(--card), var(--fg) 6%); border:1px solid var(--border); padding:.35rem; }
+
+/* Steps e Owner Capture */
+.steps { display:grid; gap:1rem; }
+@media (min-width: 768px) { .steps { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+.step-card { border:1px solid var(--border); border-radius: var(--radius); padding:1rem; background: var(--card); }
+.owner-panel { border:1px solid var(--border); border-radius: var(--radius-lg); padding:1rem; background: var(--card); box-shadow: var(--shadow); }
+
+/* FAQ */
+details.faq { border:1px solid var(--border); border-radius: 12px; padding: .75rem 1rem; background: var(--card); }
+details.faq summary { cursor:pointer; list-style:none; font-weight:600; display:flex; align-items:center; justify-content:space-between; }
+details.faq summary::-webkit-details-marker { display:none; }
+details.faq[open] summary .icon { transform: rotate(90deg); }
+.icon { transition: transform .2s ease; }
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--border); background: color-mix(in oklab, var(--bg), var(--glass) 40%); }
+

@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import RevealObserver from "@/components/RevealObserver";
 
 const titleFont = DM_Sans({
   variable: "--font-title",
@@ -19,25 +20,24 @@ const bodyFont = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "LEASE IMÓVEIS — Locação sem dor de cabeça",
+    default: "Aluguel em Goiânia — LEASE IMÓVEIS",
     template: "%s • LEASE IMÓVEIS",
   },
   description:
-    "Imóveis verificados, processo transparente e atendimento próximo. Locação residencial e comercial.",
-  metadataBase: new URL("https://www.lease-imoveis.example"),
+    "Aluguel de imóveis em Goiânia com atendimento próximo. Setor Bueno, Marista, Oeste, Jardim Goiás e Alto da Glória.",
+  metadataBase: new URL("https://lease-imoveis.example"),
   openGraph: {
-    title: "LEASE IMÓVEIS — Locação sem dor de cabeça",
+    title: "Aluguel em Goiânia — LEASE IMÓVEIS",
     description:
-      "Imóveis verificados, processo transparente e atendimento próximo. Locação residencial e comercial.",
+      "Imóveis verificados e locação transparente em Goiânia.",
     type: "website",
     locale: "pt_BR",
     siteName: "LEASE IMÓVEIS",
   },
   twitter: {
     card: "summary_large_image",
-    title: "LEASE IMÓVEIS",
-    description:
-      "Imóveis verificados, processo transparente e atendimento próximo.",
+    title: "Aluguel em Goiânia — LEASE IMÓVEIS",
+    description: "Imóveis verificados e locação transparente em Goiânia.",
   },
 };
 
@@ -47,13 +47,35 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`${titleFont.variable} ${bodyFont.variable} antialiased`}>
         <GoogleAnalytics />
+        <RevealObserver />
         <Header />
         {children}
         <Footer />
         <CookieBanner />
+        {/* JSON-LD Organization/LocalBusiness */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'LocalBusiness',
+              name: 'LEASE IMÓVEIS',
+              url: 'https://lease-imoveis.example',
+              address: {
+                '@type': 'PostalAddress',
+                streetAddress: 'Rua 9, Setor Marista',
+                addressLocality: 'Goiânia',
+                addressRegion: 'GO',
+                addressCountry: 'BR',
+              },
+              areaServed: 'Goiânia',
+              sameAs: ['https://wa.me/5562999999999'],
+            }),
+          }}
+        />
       </body>
     </html>
   );
