@@ -1,6 +1,4 @@
 "use client";
-
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import GlobalSearch from "@/components/GlobalSearch";
@@ -55,6 +53,7 @@ export default function Header() {
           {/* Toggle dark sem JS usando :has */}
           <label htmlFor="toggle-dark" className="sr-only">Alternar tema</label>
           <input id="toggle-dark" type="checkbox" aria-label="Alternar tema escuro" style={{display:'none'}} />
+          <ThemeToggle />
         </nav>
       </div>
     </header>
