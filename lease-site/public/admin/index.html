@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CMS • LEASE</title>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </head>
+  <body>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+      const config = {
+        backend: { name: "git-gateway" },
+        media_folder: "public/uploads",
+        public_folder: "/uploads",
+        collections: [
+          {
+            name: "imoveis",
+            label: "Imóveis",
+            folder: "content/imoveis",
+            create: true,
+            slug: "{{slug}}",
+            fields: [
+              { label: "Título", name: "title", widget: "string" },
+              { label: "Slug", name: "slug", widget: "string" },
+              { label: "Bairro", name: "bairro", widget: "string" },
+              { label: "Endereço", name: "endereco", widget: "string" },
+              { label: "Tipo", name: "tipo", widget: "select", options: ["Apartamento","Casa","Sala","Loja"] },
+              { label: "Metragem (m2)", name: "metragem", widget: "number" },
+              { label: "Quartos", name: "quartos", widget: "number" },
+              { label: "Banheiros", name: "banheiros", widget: "number" },
+              { label: "Vagas", name: "vagas", widget: "number" },
+              { label: "Mobiliado", name: "mobilia", widget: "boolean", default: false },
+              { label: "Pet-friendly", name: "pet", widget: "boolean", default: true },
+              { label: "Valor aluguel", name: "aluguel", widget: "number" },
+              { label: "Condomínio", name: "condominio", widget: "number", required: false },
+              { label: "IPTU", name: "iptu", widget: "number", required: false },
+              { label: "Tour/Vídeo URL", name: "tour", widget: "string", required: false },
+              { label: "Galeria", name: "galeria", widget: "list", field: { label: "Imagem", name: "image", widget: "image" } },
+              { label: "Tags", name: "tags", widget: "list", required: false },
+              { label: "Status", name: "status", widget: "select", options: ["disponivel","alugado"], default: "disponivel" },
+              { label: "Destaque", name: "destaque", widget: "boolean", default: false },
+              { label: "Conteúdo", name: "body", widget: "markdown" }
+            ]
+          },
+          {
+            name: "blog",
+            label: "Blog",
+            folder: "content/blog",
+            create: true,
+            slug: "{{slug}}",
+            fields: [
+              { label: "Título", name: "title", widget: "string" },
+              { label: "Slug", name: "slug", widget: "string" },
+              { label: "Resumo", name: "excerpt", widget: "text" },
+              { label: "Capa", name: "cover", widget: "image", required: false },
+              { label: "Conteúdo", name: "body", widget: "markdown" }
+            ]
+          }
+        ]
+      };
+      window.CMS.init({ config });
+    </script>
+  </body>
+  </html>
+
+
+
+

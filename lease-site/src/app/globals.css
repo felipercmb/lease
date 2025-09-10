@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  /* Identidade LEASE */
+  --lease-primary: #0E2A32; /* azul profundo */
+  --lease-accent: #BBA789;  /* dourado/champagne */
+  --lease-muted: #6B7280;   /* cinza neutro */
+  --lease-bg: #F7F7F7;      /* fundo claro */
+
+  --background: var(--lease-bg);
+  --foreground: #111827;
+  --border: #E5E7EB;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--lease-primary);
+  --color-accent: var(--lease-accent);
+  --color-muted: var(--lease-muted);
+  --color-border: var(--border);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-title);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0b0f12;
+    --foreground: #e5e7eb;
+    --border: #1f2937;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, -apple-system, Segoe UI, Roboto,
+    Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-title), var(--font-body), system-ui, -apple-system,
+    Segoe UI, Roboto, Arial, sans-serif;
+}
