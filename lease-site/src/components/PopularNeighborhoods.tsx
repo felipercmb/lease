@@ -1,3 +1,5 @@
+"use client";
+
 export default function PopularNeighborhoods({ onPick }: { onPick: (bairro: string) => void }) {
   const bairros = ["Setor Bueno", "Setor Marista", "Setor Oeste", "Jardim Goiás", "Alto da Glória"];
   return (
