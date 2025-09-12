@@ -1,0 +1,53 @@
+/* Design Tokens — LEASE IMÓVEIS */
+
+:root {
+  /* Marca */
+  --brand: #0E2A32; /* Azul Petróleo */
+  --brand-2: #0B3F52; /* Secundário */
+  --accent: #BBA789; /* Champagne/Dourado */
+
+  /* Neutros */
+  --fg: #111827; /* Texto principal */
+  --bg: #F8F9FB; /* Fundo claro */
+  --muted: #6B7280; /* Texto suave */
+  --card: #ffffff; /* Superfícies */
+  --border: #E6E8EC; /* Bordas suaves */
+  --glass: rgba(255,255,255,.6);
+
+  /* Shadows e efeitos */
+  --shadow: 0 10px 30px rgba(2, 6, 23, .06);
+  --grad: radial-gradient(1200px 600px at 10% -10%, rgba(11,63,82,.10), transparent 60%),
+          radial-gradient(800px 400px at 90% 10%, rgba(187,167,137,.10), transparent 60%);
+  --outline: 2px solid color-mix(in oklab, var(--accent), white 30%);
+
+  /* Radius */
+  --radius: 12px;
+  --radius-lg: 18px;
+
+  /* Espaçamento (escala curta) */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+
+  /* Tipografia (variáveis conectadas aos fonts do Next) */
+  --font-heading: var(--font-title);
+  --font-sans: var(--font-body);
+}
+
+/* Dark mode com :has(#toggle-dark:checked) definido no Header */
+html:has(#toggle-dark:checked) {
+  color-scheme: dark;
+  --bg: #0b0f12;
+  --fg: #e5e7eb;
+  --card: #0f1418;
+  --border: #1d2732;
+  --glass: rgba(0,0,0,.35);
+  --shadow: 0 18px 50px rgba(0,0,0,.55);
+  --grad: radial-gradient(1200px 600px at 10% -10%, rgba(11,63,82,.22), transparent 60%),
+          radial-gradient(800px 400px at 90% 10%, rgba(187,167,137,.14), transparent 60%);
+}
+
+

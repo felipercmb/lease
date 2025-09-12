@@ -5,7 +5,7 @@ Antes/Depois (placeholders):
 - Mobile: before-mobile.png → after-mobile.png
 
 Resumo das mudanças
-- UI baseada em tokens (ui/tokens.css), utilitários (ui/utilities.css) e componentes (ui/components.css)
+- UI baseada em tokens (styles/tokens.css), utilitários (ui/utilities.css) e componentes (ui/components.css)
 - Header sticky com blur, underline animado e dark mode por :has(#toggle-dark)
 - Hero com filtros e cartão com glow cônico
 - Lista de imóveis com cards, ordenação e skeleton loading
@@ -14,7 +14,7 @@ Resumo das mudanças
 - Microinterações: underline-from-left, reveal via IntersectionObserver
 
 Como trocar a paleta/tema
-1. Edite `src/ui/tokens.css` nas variáveis: `--brand`, `--brand-2`, `--accent`, `--bg`, `--card`, etc.
+1. Edite `src/styles/tokens.css` nas variáveis: `--brand`, `--brand-2`, `--accent`, `--bg`, `--card`, etc.
 2. Ajuste também o bloco `html:has(#toggle-dark:checked)` para a versão escura.
 
 Checklist de acessibilidade e métricas
